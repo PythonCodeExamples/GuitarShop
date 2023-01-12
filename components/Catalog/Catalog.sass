@@ -1,0 +1,80 @@
+$catalog-item-width: 250px
+$price-color: #969696
+
+.catalog-container
+    width: 100%
+    display: grid
+    grid-template-rows: 1fr 
+    grid-template-columns: repeat(4, $catalog-item-width)
+    justify-content: space-between
+    padding-top: 50px
+
+
+@media (max-width: 1100px)
+    .catalog-container
+        grid-template-rows: 1fr
+        grid-template-columns: repeat(3, $catalog-item-width)
+        justify-content: space-around
+
+@media (max-width: 800px)
+    .catalog-container
+        grid-template-columns: repeat(2, $catalog-item-width)
+
+@media screen and (max-width: 550px)
+    .catalog-container
+        grid-template-columns: $catalog-item-width
+
+.catalog-item
+    width: 100%
+    padding: 10px
+    margin: 20px auto
+    background-color: white
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    border-radius: 10px
+    transition: .2s all ease
+    box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.7)
+
+    &:hover 
+        box-shadow: 0px 5px 20px 5px rgba(0, 0, 0, 0.7)
+
+    &__name
+        flex-basis: 50px
+        margin-bottom: 10px
+        font-weight: bold
+
+    &__image
+        width: 100%
+        height: 200px
+        object-fit: contain
+        margin-bottom: 10px
+
+    &__price
+        margin-bottom: 10px
+        color: $price-color
+        align-self: flex-start
+        margin-left: 20px
+    
+    &__button
+        width: fit-content
+        padding: 10px 20px
+        border: 1px solid black
+        border-radius: 7px
+        background: white
+        cursor: pointer
+        transition: .2s all ease
+        &:active, &:focus
+            outline: none
+
+        @media screen and (min-width: 450px)
+            &:hover
+                border: 1px solid transparent
+                background-color: #ecf56f
+
+        &_active
+            border: 1px solid transparent
+            background-color: #ecf56f
+
+    
